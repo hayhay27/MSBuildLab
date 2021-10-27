@@ -1,0 +1,99 @@
+﻿<Project>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)PageSchema.xml">
+      <Context>File;BrowseObject</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
+
+  <Target Name="PrintSchemas" BeforeTargets="BeforeBuild">
+    <Message Text="%(PropertyPageSchema.Identity)" Importance="high" />
+  </Target>
+  
+  <ItemGroup>
+    <OpenApiReference Update="@(OpenApiReference)">
+      <Options Condition="'%(ClientBaseClass)' != ''">%(Options) /ClientBaseClass:%(ClientBaseClass)</Options>
+      <Options Condition="'%(ConfigurationClass)' != ''">%(Options) /ConfigurationClass:%(ConfigurationClass)</Options>
+      <Options Condition="'%(GenerateClientClasses)' != ''">%(Options) /GenerateClientClasses:%(GenerateClientClasses)</Options>
+      <Options Condition="'%(GenerateClientInterfaces)' != ''">%(Options) /GenerateClientInterfaces:%(GenerateClientInterfaces)</Options>
+      <Options Condition="'%(ClientBaseInterface)' != ''">%(Options) /ClientBaseInterface:%(ClientBaseInterface)</Options>
+      <Options Condition="'%(InjectHttpClient)' != ''">%(Options) /InjectHttpClient:%(InjectHttpClient)</Options>
+      <Options Condition="'%(DisposeHttpClient)' != ''">%(Options) /DisposeHttpClient:%(DisposeHttpClient)</Options>
+      <Options Condition="'%(ProtectedMethods)' != ''">%(Options) /ProtectedMethods:%(ProtectedMethods)</Options>
+      <Options Condition="'%(GenerateExceptionClasses)' != ''">%(Options) /GenerateExceptionClasses:%(GenerateExceptionClasses)</Options>
+      <Options Condition="'%(ExceptionClass)' != ''">%(Options) /ExceptionClass:%(ExceptionClass)</Options>
+      <Options Condition="'%(WrapDtoExceptions)' != ''">%(Options) /WrapDtoExceptions:%(WrapDtoExceptions)</Options>
+      <Options Condition="'%(UseHttpClientCreationMethod)' != ''">%(Options) /UseHttpClientCreationMethod:%(UseHttpClientCreationMethod)</Options>
+      <Options Condition="'%(HttpClientType)' != ''">%(Options) /HttpClientType:%(HttpClientType)</Options>
+      <Options Condition="'%(UseHttpRequestMessageCreationMethod)' != ''">%(Options) /UseHttpRequestMessageCreationMethod:%(UseHttpRequestMessageCreationMethod)</Options>
+      <Options Condition="'%(UseBaseUrl)' != ''">%(Options) /UseBaseUrl:%(UseBaseUrl)</Options>
+      <Options Condition="'%(GenerateBaseUrlProperty)' != ''">%(Options) /GenerateBaseUrlProperty:%(GenerateBaseUrlProperty)</Options>
+      <Options Condition="'%(GenerateSyncMethods)' != ''">%(Options) /GenerateSyncMethods:%(GenerateSyncMethods)</Options>
+      <Options Condition="'%(GeneratePrepareRequestAndProcessResponseAsAsyncMethods)' != ''">%(Options) /GeneratePrepareRequestAndProcessResponseAsAsyncMethods:%(GeneratePrepareRequestAndProcessResponseAsAsyncMethods)</Options>
+      <Options Condition="'%(ExposeJsonSerializerSettings)' != ''">%(Options) /ExposeJsonSerializerSettings:%(ExposeJsonSerializerSettings)</Options>
+      <Options Condition="'%(ClientClassAccessModifier)' != ''">%(Options) /ClientClassAccessModifier:%(ClientClassAccessModifier)</Options>
+      <Options Condition="'%(TypeAccessModifier)' != ''">%(Options) /TypeAccessModifier:%(TypeAccessModifier)</Options>
+      <Options Condition="'%(GenerateContractsOutput)' != ''">%(Options) /GenerateContractsOutput:%(GenerateContractsOutput)</Options>
+      <Options Condition="'%(ContractsNamespace)' != ''">%(Options) /ContractsNamespace:%(ContractsNamespace)</Options>
+      <Options Condition="'%(ContractsOutput)' != ''">%(Options) /ContractsOutput:%(ContractsOutput)</Options>
+      <Options Condition="'%(ParameterDateTimeFormat)' != ''">%(Options) /ParameterDateTimeFormat:%(ParameterDateTimeFormat)</Options>
+      <Options Condition="'%(ParameterDateFormat)' != ''">%(Options) /ParameterDateFormat:%(ParameterDateFormat)</Options>
+      <Options Condition="'%(GenerateUpdateJsonSerializerSettingsMethod)' != ''">%(Options) /GenerateUpdateJsonSerializerSettingsMethod:%(GenerateUpdateJsonSerializerSettingsMethod)</Options>
+      <Options Condition="'%(UseRequestAndResponseSerializationSettings)' != ''">%(Options) /UseRequestAndResponseSerializationSettings:%(UseRequestAndResponseSerializationSettings)</Options>
+      <Options Condition="'%(SerializeTypeInformation)' != ''">%(Options) /SerializeTypeInformation:%(SerializeTypeInformation)</Options>
+      <Options Condition="'%(QueryNullValue)' != ''">%(Options) /QueryNullValue:%(QueryNullValue)</Options>
+      <Options Condition="'%(OperationGenerationMode)' != ''">%(Options) /OperationGenerationMode:%(OperationGenerationMode)</Options>
+      <Options Condition="'%(AdditionalNamespaceUsages)' != ''">%(Options) /AdditionalNamespaceUsages:%(AdditionalNamespaceUsages)</Options>
+      <Options Condition="'%(AdditionalContractNamespaceUsages)' != ''">%(Options) /AdditionalContractNamespaceUsages:%(AdditionalContractNamespaceUsages)</Options>
+      <Options Condition="'%(GenerateOptionalParameters)' != ''">%(Options) /GenerateOptionalParameters:%(GenerateOptionalParameters)</Options>
+      <Options Condition="'%(GenerateJsonMethods)' != ''">%(Options) /GenerateJsonMethods:%(GenerateJsonMethods)</Options>
+      <Options Condition="'%(EnforceFlagEnums)' != ''">%(Options) /EnforceFlagEnums:%(EnforceFlagEnums)</Options>
+      <Options Condition="'%(ParameterArrayType)' != ''">%(Options) /ParameterArrayType:%(ParameterArrayType)</Options>
+      <Options Condition="'%(ParameterDictionaryType)' != ''">%(Options) /ParameterDictionaryType:%(ParameterDictionaryType)</Options>
+      <Options Condition="'%(ResponseArrayType)' != ''">%(Options) /ResponseArrayType:%(ResponseArrayType)</Options>
+      <Options Condition="'%(ResponseDictionaryType)' != ''">%(Options) /ResponseDictionaryType:%(ResponseDictionaryType)</Options>
+      <Options Condition="'%(WrapResponses)' != ''">%(Options) /WrapResponses:%(WrapResponses)</Options>
+      <Options Condition="'%(WrapResponseMethods)' != ''">%(Options) /WrapResponseMethods:%(WrapResponseMethods)</Options>
+      <Options Condition="'%(GenerateResponseClasses)' != ''">%(Options) /GenerateResponseClasses:%(GenerateResponseClasses)</Options>
+      <Options Condition="'%(ResponseClass)' != ''">%(Options) /ResponseClass:%(ResponseClass)</Options>
+      <Options Condition="'%(RequiredPropertiesMustBeDefined)' != ''">%(Options) /RequiredPropertiesMustBeDefined:%(RequiredPropertiesMustBeDefined)</Options>
+      <Options Condition="'%(DateType)' != ''">%(Options) /DateType:%(DateType)</Options>
+      <Options Condition="'%(JsonConverters)' != ''">%(Options) /JsonConverters:%(JsonConverters)</Options>
+      <Options Condition="'%(AnyType)' != ''">%(Options) /AnyType:%(AnyType)</Options>
+      <Options Condition="'%(DateTimeType)' != ''">%(Options) /DateTimeType:%(DateTimeType)</Options>
+      <Options Condition="'%(TimeType)' != ''">%(Options) /TimeType:%(TimeType)</Options>
+      <Options Condition="'%(TimeSpanType)' != ''">%(Options) /TimeSpanType:%(TimeSpanType)</Options>
+      <Options Condition="'%(ArrayType)' != ''">%(Options) /ArrayType:%(ArrayType)</Options>
+      <Options Condition="'%(ArrayInstanceType)' != ''">%(Options) /ArrayInstanceType:%(ArrayInstanceType)</Options>
+      <Options Condition="'%(DictionaryType)' != ''">%(Options) /DictionaryType:%(DictionaryType)</Options>
+      <Options Condition="'%(DictionaryInstanceType)' != ''">%(Options) /DictionaryInstanceType:%(DictionaryInstanceType)</Options>
+      <Options Condition="'%(ArrayBaseType)' != ''">%(Options) /ArrayBaseType:%(ArrayBaseType)</Options>
+      <Options Condition="'%(DictionaryBaseType)' != ''">%(Options) /DictionaryBaseType:%(DictionaryBaseType)</Options>
+      <Options Condition="'%(ClassStyle)' != ''">%(Options) /ClassStyle:%(ClassStyle)</Options>
+      <Options Condition="'%(JsonLibrary)' != ''">%(Options) /JsonLibrary:%(JsonLibrary)</Options>
+      <Options Condition="'%(GenerateDefaultValues)' != ''">%(Options) /GenerateDefaultValues:%(GenerateDefaultValues)</Options>
+      <Options Condition="'%(GenerateDataAnnotations)' != ''">%(Options) /GenerateDataAnnotations:%(GenerateDataAnnotations)</Options>
+      <Options Condition="'%(ExcludedTypeNames)' != ''">%(Options) /ExcludedTypeNames:%(ExcludedTypeNames)</Options>
+      <Options Condition="'%(ExcludedParameterNames)' != ''">%(Options) /ExcludedParameterNames:%(ExcludedParameterNames)</Options>
+      <Options Condition="'%(HandleReferences)' != ''">%(Options) /HandleReferences:%(HandleReferences)</Options>
+      <Options Condition="'%(GenerateImmutableArrayProperties)' != ''">%(Options) /GenerateImmutableArrayProperties:%(GenerateImmutableArrayProperties)</Options>
+      <Options Condition="'%(GenerateImmutableDictionaryProperties)' != ''">%(Options) /GenerateImmutableDictionaryProperties:%(GenerateImmutableDictionaryProperties)</Options>
+      <Options Condition="'%(JsonSerializerSettingsTransformationMethod)' != ''">%(Options) /JsonSerializerSettingsTransformationMethod:%(JsonSerializerSettingsTransformationMethod)</Options>
+      <Options Condition="'%(InlineNamedArrays)' != ''">%(Options) /InlineNamedArrays:%(InlineNamedArrays)</Options>
+      <Options Condition="'%(InlineNamedDictionaries)' != ''">%(Options) /InlineNamedDictionaries:%(InlineNamedDictionaries)</Options>
+      <Options Condition="'%(InlineNamedTuples)' != ''">%(Options) /InlineNamedTuples:%(InlineNamedTuples)</Options>
+      <Options Condition="'%(InlineNamedAny)' != ''">%(Options) /InlineNamedAny:%(InlineNamedAny)</Options>
+      <Options Condition="'%(GenerateDtoTypes)' != ''">%(Options) /GenerateDtoTypes:%(GenerateDtoTypes)</Options>
+      <Options Condition="'%(GenerateOptionalPropertiesAsNullable)' != ''">%(Options) /GenerateOptionalPropertiesAsNullable:%(GenerateOptionalPropertiesAsNullable)</Options>
+      <Options Condition="'%(GenerateNullableReferenceTypes)' != ''">%(Options) /GenerateNullableReferenceTypes:%(GenerateNullableReferenceTypes)</Options>
+      <Options Condition="'%(TemplateDirectory)' != ''">%(Options) /TemplateDirectory:%(TemplateDirectory)</Options>
+      <Options Condition="'%(TypeNameGenerator)' != ''">%(Options) /TypeNameGenerator:%(TypeNameGenerator)</Options>
+      <Options Condition="'%(PropertyNameGeneratorType)' != ''">%(Options) /PropertyNameGeneratorType:%(PropertyNameGeneratorType)</Options>
+      <Options Condition="'%(EnumNameGeneratorType)' != ''">%(Options) /EnumNameGeneratorType:%(EnumNameGeneratorType)</Options>
+      <Options Condition="'%(ChecksumCacheEnabled)' != ''">%(Options) /ChecksumCacheEnabled:%(ChecksumCacheEnabled)</Options>
+      <Options Condition="'%(ServiceHost)' != ''">%(Options) /ServiceHost:%(ServiceHost)</Options>
+      <Options Condition="'%(ServiceSchemes)' != ''">%(Options) /ServiceSchemes:%(ServiceSchemes)</Options>
+      <Options Condition="'%(NewLineBehavior)' != ''">%(Options) /NewLineBehavior:%(NewLineBehavior)</Options>
+    </OpenApiReference>
+  </ItemGroup>
+  
+</Project>

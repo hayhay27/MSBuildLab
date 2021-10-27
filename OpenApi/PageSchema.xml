@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule Name="OpenApiReference" DisplayName="File Properties" PageTemplate="generic" Description="File Properties" OverrideMode="Extend">
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" Label="Configuration" ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category Name="NSwagCodeGen" DisplayName="NSwag Code Generation" />
+    </Rule.Categories>
+    <StringProperty Name="Options" DisplayName="Generator options" Category="CodeGen" Description="Options to pass to the code generator." ReadOnly="true">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" SourceOfDefaultValue="AfterContext" PersistenceStyle="Attribute" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ClientBaseClass" DisplayName="ClientBaseClass" Description="The client base class (empty for no base class)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ConfigurationClass" DisplayName="ConfigurationClass" Description="The configuration class. The setting ClientBaseClass must be set. (empty for no configuration class)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="GenerateClientClasses" DisplayName="GenerateClientClasses" Description="Specifies whether generate client classes." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateClientInterfaces" DisplayName="GenerateClientInterfaces" Description="Specifies whether generate interfaces for the client classes." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="ClientBaseInterface" DisplayName="ClientBaseInterface" Description="Base interface for client interfaces (empty for no client base interface)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="InjectHttpClient" DisplayName="InjectHttpClient" Description="Specifies whether an HttpClient instance is injected (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="DisposeHttpClient" DisplayName="DisposeHttpClient" Description="Specifies whether to dispose the HttpClient (injected HttpClient is never disposed)." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringListProperty Name="ProtectedMethods" DisplayName="ProtectedMethods" Description="List of methods with a protected access modifier ('classname.methodname')." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty Name="ExceptionClass" DisplayName="ExceptionClass" Description="The exception class (default 'SwaggerException', may use '{controller}' placeholder)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="WrapDtoExceptions" DisplayName="WrapDtoExceptions" Description="Specifies whether DTO exceptions are wrapped in a SwaggerException instance (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="UseHttpClientCreationMethod" DisplayName="UseHttpClientCreationMethod" Description="Specifies whether to call CreateHttpClientAsync on the base class to create a new HttpClient." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="HttpClientType" DisplayName="HttpClientType" Description="Specifies the HttpClient type. By default the 'System.Net.Http.HttpClient' is used." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="UseHttpRequestMessageCreationMethod" DisplayName="UseHttpRequestMessageCreationMethod" Description="Specifies whether to call CreateHttpRequestMessageAsync on the base class to create a new HttpRequestMethod." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="UseBaseUrl" DisplayName="UseBaseUrl" Description="Specifies whether to use and expose the base URL (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateBaseUrlProperty" DisplayName="GenerateBaseUrlProperty" Description="Specifies whether to generate the BaseUrl property, must be defined on the base class otherwise (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateSyncMethods" DisplayName="GenerateSyncMethods" Description="Specifies whether to generate synchronous methods (not recommended, default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GeneratePrepareRequestAndProcessResponseAsAsyncMethods" DisplayName="GeneratePrepareRequestAndProcessResponseAsAsyncMethods" Description="Specifies whether to generate PrepareRequest and ProcessResponse methods as asynchronous methods (if true, both must be defined in the base class or in the partial class, default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="ExposeJsonSerializerSettings" DisplayName="ExposeJsonSerializerSettings" Description="Specifies whether to expose the JsonSerializerSettings property (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="ClientClassAccessModifier" DisplayName="ClientClassAccessModifier" Description="The client class access modifier (default: public)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="TypeAccessModifier" DisplayName="TypeAccessModifier" Description="The DTO class/enum access modifier (default: public)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="GenerateContractsOutput" DisplayName="GenerateContractsOutput" Description="Specifies whether to generate contracts output (interface and models in a separate file set with the ContractsOutput parameter)." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="ContractsNamespace" DisplayName="ContractsNamespace" Description="The contracts .NET namespace." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ContractsOutput" DisplayName="ContractsOutput" Description="The contracts output file path (optional, if no path is set then a single file with the implementation and contracts is generated)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ParameterDateTimeFormat" DisplayName="ParameterDateTimeFormat" Description="Specifies the format for DateTime type method parameters (default: s)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ParameterDateFormat" DisplayName="ParameterDateFormat" Description="Specifies the format for Date type method parameters (default: yyyy-MM-dd)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="GenerateUpdateJsonSerializerSettingsMethod" DisplayName="GenerateUpdateJsonSerializerSettingsMethod" Description="Generate the UpdateJsonSerializerSettings method (must be implemented in the base class otherwise, default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="UseRequestAndResponseSerializationSettings" DisplayName="UseRequestAndResponseSerializationSettings" Description="Generate different request and response serialization settings (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="SerializeTypeInformation" DisplayName="SerializeTypeInformation" Description="Serialize the type information in a $type property (not recommended, also sets TypeNameHandling = Auto, default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="QueryNullValue" DisplayName="QueryNullValue" Description="The null value used for query parameters which are null (default: '')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <EnumProperty Name="OperationGenerationMode" DisplayName="OperationGenerationMode" Description="The operation generation mode ('SingleClientFromOperationId' or 'MultipleClientsFromPathSegments')." Category="NSwagCodeGen">
+      <EnumProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </EnumProperty.DataSource>
+      <EnumValue Name="MultipleClientsFromOperationId" IsDefault="true" />
+      <EnumValue Name="MultipleClientsFromPathSegments" />
+      <EnumValue Name="MultipleClientsFromFirstTagAndPathSegments" />
+      <EnumValue Name="MultipleClientsFromFirstTagAndOperationId" />
+      <EnumValue Name="SingleClientFromOperationId" />
+      <EnumValue Name="SingleClientFromPathSegments" />
+    </EnumProperty>
+    <StringListProperty Name="AdditionalNamespaceUsages" DisplayName="AdditionalNamespaceUsages" Description="The additional namespace usages." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty Name="AdditionalContractNamespaceUsages" DisplayName="AdditionalContractNamespaceUsages" Description="The additional contract namespace usages." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty Name="GenerateOptionalParameters" DisplayName="GenerateOptionalParameters" Description="Specifies whether to reorder parameters (required first, optional at the end) and generate optional parameters (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateJsonMethods" DisplayName="GenerateJsonMethods" Description="Specifies whether to render ToJson() and FromJson() methods for DTOs (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="EnforceFlagEnums" DisplayName="EnforceFlagEnums" Description="Specifies whether enums should be always generated as bit flags (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="ParameterArrayType" DisplayName="ParameterArrayType" Description="The generic array .NET type of operation parameters (default: 'IEnumerable')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ParameterDictionaryType" DisplayName="ParameterDictionaryType" Description="The generic dictionary .NET type of operation parameters (default: 'IDictionary')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ResponseArrayType" DisplayName="ResponseArrayType" Description="The generic array .NET type of operation responses (default: 'ICollection')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ResponseDictionaryType" DisplayName="ResponseDictionaryType" Description="The generic dictionary .NET type of operation responses (default: 'IDictionary')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="WrapResponses" DisplayName="WrapResponses" Description="Specifies whether to wrap success responses to allow full response access." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringListProperty Name="WrapResponseMethods" DisplayName="WrapResponseMethods" Description="List of methods where responses are wrapped ('ControllerName.MethodName', WrapResponses must be true)." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty Name="GenerateResponseClasses" DisplayName="GenerateResponseClasses" Description="Specifies whether to generate response classes (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="ResponseClass" DisplayName="ResponseClass" Description="The response class (default 'SwaggerResponse', may use '{controller}' placeholder)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="RequiredPropertiesMustBeDefined" DisplayName="RequiredPropertiesMustBeDefined" Description="Specifies whether a required property must be defined in JSON (sets Required.Always when the property is required)." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="DateType" DisplayName="DateType" Description="The date .NET type (default: 'DateTimeOffset')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringListProperty Name="JsonConverters" DisplayName="JsonConverters" Description="Specifies the custom Json.NET converter types (optional, comma separated)." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty Name="AnyType" DisplayName="AnyType" Description="The any .NET type (default: 'object')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="DateTimeType" DisplayName="DateTimeType" Description="The date time .NET type (default: 'DateTimeOffset')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="TimeType" DisplayName="TimeType" Description="The time .NET type (default: 'TimeSpan')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="TimeSpanType" DisplayName="TimeSpanType" Description="The time span .NET type (default: 'TimeSpan')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ArrayType" DisplayName="ArrayType" Description="The generic array .NET type (default: 'ICollection')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ArrayInstanceType" DisplayName="ArrayInstanceType" Description="The generic array .NET instance type (default: empty = ArrayType)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="DictionaryType" DisplayName="DictionaryType" Description="The generic dictionary .NET type (default: 'IDictionary')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="DictionaryInstanceType" DisplayName="DictionaryInstanceType" Description="The generic dictionary .NET instance type (default: empty = DictionaryType)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="ArrayBaseType" DisplayName="ArrayBaseType" Description="The generic array .NET type (default: 'Collection')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="DictionaryBaseType" DisplayName="DictionaryBaseType" Description="The generic dictionary .NET type (default: 'Dictionary')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <EnumProperty Name="ClassStyle" DisplayName="ClassStyle" Description="The CSharp class style, 'Poco' or 'Inpc' (default: 'Poco')." Category="NSwagCodeGen">
+      <EnumProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </EnumProperty.DataSource>
+      <EnumValue Name="Poco" IsDefault="true" />
+      <EnumValue Name="Inpc" />
+      <EnumValue Name="Prism" />
+      <EnumValue Name="Record" />
+    </EnumProperty>
+    <EnumProperty Name="JsonLibrary" DisplayName="JsonLibrary" Description="The CSharp JSON library, 'NewtonsoftJson' or 'SystemTextJson' (default: 'NewtonsoftJson', 'SystemTextJson' is experimental)." Category="NSwagCodeGen">
+      <EnumProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </EnumProperty.DataSource>
+      <EnumValue Name="NewtonsoftJson" IsDefault="true" />
+      <EnumValue Name="SystemTextJson" />
+    </EnumProperty>
+    <BoolProperty Name="GenerateDefaultValues" DisplayName="GenerateDefaultValues" Description="Specifies whether to generate default values for properties (may generate CSharp 6 code, default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateDataAnnotations" DisplayName="GenerateDataAnnotations" Description="Specifies whether to generate data annotation attributes on DTO classes (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringListProperty Name="ExcludedTypeNames" DisplayName="ExcludedTypeNames" Description="The excluded DTO type names (must be defined in an import or other namespace)." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty Name="ExcludedParameterNames" DisplayName="ExcludedParameterNames" Description="The globally excluded parameter names." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty Name="HandleReferences" DisplayName="HandleReferences" Description="Use preserve references handling (All) in the JSON serializer (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateImmutableArrayProperties" DisplayName="GenerateImmutableArrayProperties" Description="Specifies whether to remove the setter for non-nullable array properties (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateImmutableDictionaryProperties" DisplayName="GenerateImmutableDictionaryProperties" Description="Specifies whether to remove the setter for non-nullable dictionary properties (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="JsonSerializerSettingsTransformationMethod" DisplayName="JsonSerializerSettingsTransformationMethod" Description="The name of a static method which is called to transform the JsonSerializerSettings used in the generated ToJson()/FromJson() methods (default: none)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="InlineNamedArrays" DisplayName="InlineNamedArrays" Description="Inline named arrays (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="InlineNamedDictionaries" DisplayName="InlineNamedDictionaries" Description="Inline named dictionaries (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="InlineNamedTuples" DisplayName="InlineNamedTuples" Description="Inline named tuples (default: true)." Category="NSwagCodeGen" Default="true">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="InlineNamedAny" DisplayName="InlineNamedAny" Description="Inline named any types (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateDtoTypes" DisplayName="GenerateDtoTypes" Description="Specifies whether to generate DTO classes." Category="NSwagCodeGen">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateOptionalPropertiesAsNullable" DisplayName="GenerateOptionalPropertiesAsNullable" Description="Specifies whether optional schema properties (not required) are generated as nullable properties (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <BoolProperty Name="GenerateNullableReferenceTypes" DisplayName="GenerateNullableReferenceTypes" Description="Specifies whether whether to generate Nullable Reference Type annotations (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="TemplateDirectory" DisplayName="TemplateDirectory" Description="The Liquid template directory (experimental)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="TypeNameGenerator" DisplayName="TypeNameGenerator" Description="The custom ITypeNameGenerator implementation type in the form 'assemblyName:fullTypeName' or 'fullTypeName')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="PropertyNameGeneratorType" DisplayName="PropertyNameGeneratorType" Description="The custom IPropertyNameGenerator implementation type in the form 'assemblyName:fullTypeName' or 'fullTypeName')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Name="EnumNameGeneratorType" DisplayName="EnumNameGeneratorType" Description="The custom IEnumNameGenerator implementation type in the form 'assemblyName:fullTypeName' or 'fullTypeName')." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty Name="ChecksumCacheEnabled" DisplayName="ChecksumCacheEnabled" Description="Whether output generation can be skipped if source document checksum matches existing output (default: false)." Category="NSwagCodeGen" Default="false">
+      <BoolProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </BoolProperty.DataSource>
+    </BoolProperty>
+    <StringProperty Name="ServiceHost" DisplayName="ServiceHost" Description="Overrides the service host of the web document (optional, use '.' to remove the hostname)." Category="NSwagCodeGen">
+      <StringProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringListProperty Name="ServiceSchemes" DisplayName="ServiceSchemes" Description="Overrides the allowed schemes of the web service (optional, comma separated, 'http', 'https', 'ws', 'wss')." Category="NSwagCodeGen">
+      <StringListProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <EnumProperty Name="NewLineBehavior" DisplayName="NewLineBehavior" Description="The new line behavior (Auto (OS default), CRLF, LF)." Category="NSwagCodeGen">
+      <EnumProperty.DataSource>
+        <DataSource ItemType="OpenApiReference" HasConfigurationCondition="false" SourceOfDefaultValue="AfterContext" />
+      </EnumProperty.DataSource>
+      <EnumValue Name="Auto" IsDefault="true" />
+      <EnumValue Name="CRLF" />
+      <EnumValue Name="LF" />
+    </EnumProperty>
+  </Rule>
+</ProjectSchemaDefinitions>

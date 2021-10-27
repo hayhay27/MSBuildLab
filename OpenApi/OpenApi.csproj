@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swagger.yaml" CodeGenerator="NSwagCSharp" Namespace="OpenApi" ClassName="PetStoreClient">
+      <SourceUri>https://petstore.swagger.io/v2/swagger.json</SourceUri>
+      <UseBaseUrl>true</UseBaseUrl>
+      <InjectHttpClient>true</InjectHttpClient>
+      <ExceptionClass>SwaggerException</ExceptionClass>
+      <GenerateNullableReferenceTypes>true</GenerateNullableReferenceTypes>
+      <GenerateOptionalPropertiesAsNullable>true</GenerateOptionalPropertiesAsNullable>
+      <GenerateOptionalParameters>true</GenerateOptionalParameters>
+      <ClientBaseClass>PetBaseClient</ClientBaseClass>
+      <ConfigurationClass>"IOptionsSnapshot&lt;PetClientOptions&gt;"</ConfigurationClass>
+      <AdditionalNamespaceUsages>OpenApi.PetClient,Microsoft.Extensions.Options</AdditionalNamespaceUsages>
+    </OpenApiReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="5.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.13.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
